@@ -17,9 +17,9 @@ define(['backbone'], function (Backbone) {
         drawMap: function () {
             this.map = L.mapbox.map(this.attributes.id, mapboxSettings.map, {accessToken: mapboxSettings.accessToken});
             this.map
-                .whenReady(this.trigger('mapReady'))
-                .on('mousemove', this.trigger('mapMouseMove'))
-                .on('click', this.trigger('mapClick'));
+                .whenReady(this.trigger.bind(this, 'mapReady'))
+                .on('mousemove', this.trigger.bind(this, 'mapMouseMove'))
+                .on('click', this.trigger.bind(this, 'mapClick'));
         },
 
         panTo: function (lat, lng, zoom) {

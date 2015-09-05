@@ -7,7 +7,7 @@
  * We draw the world map where one can click to obtain a weather forecast for a particular location.
  *
  * TODO:
- * - Don't expect the initial code to work! First, find & fix our intentional mistakes left in scripts.
+ * # - Don't expect the initial code to work! First, find & fix our intentional mistakes left in scripts.
  * - When clicking on the map, request current weather forecast for this location and display basic infos in a widget
  * - Show usage of Backbone.Collection: for instance, request a 3h weather forecast
  * - Show usage of React/JSX by building up the same features using React components instead of Backbone views.
@@ -41,11 +41,11 @@ require.config({
 
 require([
     'views/mapView',
-    'views/WeatherWidgetView',
+    'views/weatherWidgetView',
     'views/titleView',
     'mapbox'
 ], function main(MapView, WeatherWidgetView, TitleView) {
-    mapView = new MapView();
+    var mapView = new MapView();
 
     mapView
         .on('mapClick', function (event) {
@@ -57,8 +57,10 @@ require([
     document.body.appendChild(mapView.el);
 
     mapView.drawMap();
-    mapView.panTo(52.513583, 13.395357); // that's Groupon Berlin!
+    mapView.on('mapReady', function(){
+       mapView.panTo(52.513583, 13.395357); // that's Groupon Berlin! 
+    });
 
-    titleView = new TitleView({el: '#footer'});
+    var titleView = new TitleView({el: '#footer'});
     titleView.render();
 });
