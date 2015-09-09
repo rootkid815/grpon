@@ -1,0 +1,11 @@
+.title Forecast
+.inner
+    ul
+        each entry in collection
+            li
+                .time= moment(entry.get('dt_txt')).calendar()
+                .weather= entry.get('weather')[0].main
+                .temp
+                    span= Math.round(entry.get('main').temp)
+                    span &deg;
+                .clear

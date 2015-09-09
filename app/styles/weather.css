@@ -7,12 +7,16 @@
 }
 
 .img-area {
+    min-height: 175px;
+    max-height: 175px;
     -webkit-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
     position: relative;
+    overflow: hidden;
 }
 
 .img-area img {
+    min-height: 175px;
     width: 100%;
     -webkit-border-radius: 5px 5px 0 0;
     border-radius: 5px 5px 0 0;
@@ -50,6 +54,7 @@
     line-height: 200px;
     position: relative;
     font-weight: 100;
+    cursor: pointer;
 }
 
 .temperature:after {
@@ -102,7 +107,9 @@
 }
 
 .location,
-.today {
+.today,
+.cod,
+.message {
     position: absolute;
     font-weight: 300;
     font-size: 20px;
@@ -113,7 +120,7 @@
     left: 0;
 }
 
-.today {
+.today, .message {
     font-size: 12px;
     top: 35px;
     color: rgba(255, 255, 255, 0.85);
@@ -130,4 +137,54 @@
     display: inline-block;
     font-size: 16px;
     font-weight: 300;
+}
+
+.forecast {
+    color: #333;
+}
+
+.forecast .inner {
+    width: 230px;
+    max-height: 175px;
+    overflow: scroll;
+}
+
+.forecast .title {
+    font-weight: 300;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px;
+}
+
+.forecast ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.forecast li {
+    border-top: 1px #ccc solid;
+}
+
+.forecast .time, .forecast .weather, .forecast .temp {
+    float: left;
+}
+
+.forecast .time {
+    width: 130px;
+}
+
+.forecast .weather {
+    width: 70px;
+    text-align: center;
+}
+
+.forecast .temp {
+    width: 30px;
+    text-align: right;
+}
+
+.clear {
+    clear: both;
+    line-height: 0;
 }

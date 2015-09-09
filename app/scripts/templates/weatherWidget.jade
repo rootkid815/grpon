@@ -1,12 +1,13 @@
 .img-area
     .img-area-mask
-    img(src='images/cities/berlin.jpg')
+    img(src=result.bgImage)
     .img-area-front
-        span.location Berlin
-        span.today Sunday, July 27, 18:00
+        span.location=result.name
+        span.today=today
         .weather-desc
-            span Sunny
+            span=result.weather[0].main
         ul.weather-block-info
             li
-                span.temperature 25
+                span.temperature=Math.floor(result.main.temp)
                     span.temperature-unit celsius
+.forecast

@@ -3,6 +3,7 @@
  *
  * Manage interactions with the map created using Mapbox
  */
+'use strict';
 define(['backbone'], function (Backbone) {
     var mapboxSettings = {
         accessToken: 'pk.eyJ1IjoiZG9kbWNkdW5kIiwiYSI6IjMzOTk2YTJhNTQwZmMyYjNkODMxYjQ3YWIwNDg4Njk0In0._WAla5qWMPDzEAcrPA2ssg',
@@ -28,7 +29,7 @@ define(['backbone'], function (Backbone) {
         },
 
         openPopup: function (popupView, latlng) {
-            L.popup().setLatLng(latlng).setContent(popupView.el).openOn(this.map);
+            return L.popup().setLatLng(latlng).setContent(popupView.el).openOn(this.map);
         }
     });
 
